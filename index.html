@@ -21,7 +21,8 @@ background:repeating-conic-gradient(from 0deg,rgba(27,255,155,.12) 0deg 6deg,tra
 .appcard{display:flex;gap:14px;align-items:flex-start;text-decoration:none}
 .appcard img{width:58px;height:58px;border-radius:15px;flex:0 0 auto;box-shadow:0 6px 18px rgba(0,0,0,.5)}
 .appcard h3{margin:0 0 4px}.appcard .lk{color:#C77DFF;font:800 12.5px Inter;display:inline-block;margin-top:8px}
-.hero__logo{width:108px;height:108px;border-radius:26px;display:block;margin-bottom:6px;box-shadow:0 0 46px rgba(168,85,255,.32)}
+.hero__logo{width:104px;height:104px;display:block;margin:0 auto 8px;filter:drop-shadow(0 0 30px rgba(27,255,155,.35)) drop-shadow(0 8px 26px rgba(168,85,255,.45))}
+.footer__logo{width:34px;height:34px}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head><body>
@@ -39,7 +40,10 @@ background:repeating-conic-gradient(from 0deg,rgba(27,255,155,.12) 0deg 6deg,tra
 <main>
   <section class="hero" style="grid-template-columns:1fr;text-align:center;place-items:center">
     <div class="hero__copy reveal" style="max-width:680px">
-      <img src="https://duckerforge.github.io/icons/megagen.png" alt="" class="hero__logo"/>
+      <svg class="hero__logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DuckerForge">
+        <defs><linearGradient id="dfg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs>
+        <path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#dfg)"/><circle cx="50" cy="50" r="11" fill="#07070a"/><circle cx="50" cy="50" r="5.5" fill="url(#dfg)"/>
+      </svg>
       <span class="pill"><span class="pill__dot"></span>Independent solo builder · Solana Seeker</span>
       <h1 class="hero__title">Ducker<span class="grad">Forge</span></h1>
       <p class="hero__sub" id="tagline"></p>
@@ -62,7 +66,7 @@ background:repeating-conic-gradient(from 0deg,rgba(27,255,155,.12) 0deg 6deg,tra
 </main>
 
 <footer class="footer">
-  <div class="footer__brand"><img src="https://duckerforge.github.io/icons/megagen.png" alt="" class="footer__logo"/><div><b>DuckerForge</b><span>solo builder · Solana Seeker</span></div></div>
+  <div class="footer__brand"><svg class="footer__logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="dfg2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs><path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#dfg2)"/><circle cx="50" cy="50" r="11" fill="#07070a"/><circle cx="50" cy="50" r="5.5" fill="url(#dfg2)"/></svg><div><b>DuckerForge</b><span>solo builder · Solana Seeker</span></div></div>
   <nav class="footer__links"><a href="https://x.com/DuckerForge" target="_blank" rel="noopener">X / @DuckerForge</a><a href="mailto:infernaytb@gmail.com"><span id="contact"></span></a></nav>
   <p class="footer__copy">© 2026 DuckerForge · <span id="rights"></span></p>
 </footer>
