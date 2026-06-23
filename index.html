@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DuckerForge — apps for the Solana Seeker</title>
+<meta name="description" content="DuckerForge is an independent builder of apps for the Solana Seeker and Solana Mobile dApp Store, including MEGAGEN, SKR Burner and more." />
+<meta property="og:title" content="DuckerForge — apps for the Solana Seeker" />
+<meta property="og:description" content="Independent builder of Solana Mobile apps: MEGAGEN, SKR Burner, SeekerCraft and more." />
+<style>
+  :root{
+    --bg:#070509; --surface:#120D1C; --surface2:#1A1228;
+    --hairline:rgba(168,85,255,0.16); --hairlineHot:rgba(168,85,255,0.45);
+    --green:#1BFF9B; --greenDim:#13C77A; --purple:#A855FF; --purpleHot:#C77DFF;
+    --magenta:#FF2D78; --blue:#3FD8FF; --gold:#FFD23F; --text:#F4EEFF; --mute:#8C82A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:radial-gradient(120% 80% at 50% -10%, #14091F 0%, #0A0712 45%, #070509 100%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; min-height:100vh;
+  }
+  a{color:var(--purpleHot);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--hairline);
+    border-radius:999px;font-size:12.5px;font-weight:700;letter-spacing:.4px;color:var(--mute);background:var(--surface)}
+  .pill b{color:var(--green)}
+
+  header{padding:72px 0 50px;text-align:center}
+  .logo{width:88px;height:88px;margin:0 auto 24px;display:block;filter:drop-shadow(0 8px 30px rgba(168,85,255,.35))}
+  h1{font-size:clamp(40px,9vw,68px);font-weight:900;letter-spacing:-1.5px;line-height:.95;
+    background:linear-gradient(100deg,var(--green),var(--purpleHot));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+  .tag{font-size:clamp(16px,3.2vw,20px);font-weight:700;margin-bottom:10px}
+  .sub{font-size:15px;color:var(--mute);max-width:560px;margin:0 auto}
+
+  section{padding:42px 0;border-top:1px solid var(--hairline)}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--purpleHot);text-transform:uppercase;margin-bottom:14px}
+  h2{font-size:clamp(24px,5vw,30px);font-weight:900;letter-spacing:-.5px;margin-bottom:8px}
+  .lead{color:var(--mute);font-size:15px;max-width:620px;margin-bottom:24px}
+
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .app{background:var(--surface);border:1px solid var(--hairline);border-radius:18px;padding:20px;position:relative}
+  .app.feat{border-color:var(--hairlineHot);box-shadow:0 0 0 1px rgba(27,255,155,.10), 0 14px 40px rgba(168,85,255,.10)}
+  .app h3{font-size:16.5px;font-weight:900;letter-spacing:.2px;margin-bottom:4px}
+  .app p{color:var(--mute);font-size:13.5px}
+  .badge{position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:800;letter-spacing:.6px;
+    color:#05130D;background:linear-gradient(135deg,var(--green),var(--purpleHot));padding:3px 9px;border-radius:999px}
+  .app a{font-size:13px;font-weight:700;display:inline-block;margin-top:10px}
+
+  .about p{color:var(--mute);font-size:14.5px;margin-bottom:12px}
+  .about strong{color:var(--text)}
+
+  footer{padding:38px 0 60px;border-top:1px solid var(--hairline);text-align:center;color:var(--mute);font-size:13px}
+  footer .row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+  .hl{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DuckerForge logo">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs>
+      <path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#g)"/>
+      <circle cx="50" cy="50" r="11" fill="#070509"/><circle cx="50" cy="50" r="5.5" fill="url(#g)"/>
+    </svg>
+    <div class="pill">⚡ Independent builder · <b>Solana Seeker</b></div>
+    <h1>DuckerForge</h1>
+    <p class="tag">Apps for the Solana Seeker.</p>
+    <p class="sub">An independent studio building mobile apps for Solana Mobile and the Solana dApp Store — from one-tap trading tools to on-chain games.</p>
+  </div>
+</header>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="eyebrow">Our apps</div>
+    <h2>Built for the Seeker</h2>
+    <p class="lead">A growing line-up of native Solana Mobile apps, published on the Solana dApp Store.</p>
+    <div class="apps">
+      <div class="app feat">
+        <span class="badge">NEW</span>
+        <h3>MEGAGEN</h3>
+        <p>One-tap Solana baskets. Pick an amount and a risk level, tap once, own a vetted 3-token basket swapped via Jupiter.</p>
+        <a href="https://duckerforge.github.io/megagen/">megagen page →</a>
+      </div>
+      <div class="app"><h3>SKR Burner</h3><p>A Solana Mobile utility for the Seeker.</p></div>
+      <div class="app"><h3>SeekerCraft</h3><p>A native app for the Solana Seeker.</p></div>
+      <div class="app"><h3>SolFlex</h3><p>A native app for the Solana Seeker.</p></div>
+      <div class="app"><h3>3D Soccer Stars</h3><p>A 3D game for the Solana Seeker.</p></div>
+      <div class="app"><h3>3D STARBONK</h3><p>A 3D game for the Solana Seeker.</p></div>
+      <div class="app"><h3>The One</h3><p>A native app for the Solana Seeker.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Who we are</h2>
+    <p><strong>DuckerForge</strong> is an independent developer publishing apps on the Solana Mobile dApp Store for the Seeker device. We focus on fast, native, self-custodial experiences.</p>
+    <p>Our apps are non-custodial: they connect through the Solana Mobile Wallet Adapter and never hold user funds. Crypto is volatile and risky — our trading apps are tools, not financial advice.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="mailto:infernaytb@gmail.com">Contact</a>
+    </div>
+    <p>© 2026 <span class="hl">DuckerForge</span> · Apps for the Solana Seeker dApp Store</p>
+  </div>
+</footer>
+
+</body>
+</html>
