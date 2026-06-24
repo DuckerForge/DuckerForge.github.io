@@ -1,88 +1,131 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DuckerForge — apps for the Solana Seeker</title>
-<meta name="description" content="DuckerForge — independent solo builder shipping native apps for the Solana Seeker and Solana Mobile dApp Store: MEGAGEN, SKR Burner, SeekerCraft, STARBONK and more."/>
-<meta name="theme-color" content="#A855FF"/>
-<meta property="og:title" content="DuckerForge — apps for the Solana Seeker"/>
-<meta property="og:description" content="Independent solo builder of native Solana Mobile apps."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="styles.css"/>
+<meta name="description" content="DuckerForge is an independent builder of apps for the Solana Seeker and Solana Mobile dApp Store, including MEGAGEN, SKR Burner and more." />
+<meta property="og:title" content="DuckerForge — apps for the Solana Seeker" />
+<meta property="og:description" content="Independent builder of Solana Mobile apps: MEGAGEN, SKR Burner, SeekerCraft and more." />
 <style>
-:root{--orange:#A855FF;--orange-soft:rgba(168,85,255,.14)}
-.grad{background:linear-gradient(100deg,#1BFF9B,#C77DFF);-webkit-background-clip:text;background-clip:text;color:transparent}
-.pill__dot{background:#A855FF}
-.rays{position:fixed;inset:-55%;z-index:0;pointer-events:none;opacity:.5;
-background:repeating-conic-gradient(from 0deg,rgba(27,255,155,.12) 0deg 6deg,transparent 6deg 15deg,rgba(168,85,255,.12) 15deg 19deg,transparent 19deg 30deg);
--webkit-mask:radial-gradient(closest-side,#000 0%,transparent 74%);mask:radial-gradient(closest-side,#000 0%,transparent 74%);animation:dfspin 75s linear infinite}
-@keyframes dfspin{to{transform:rotate(360deg)}}
-.nav,main,.footer{position:relative;z-index:1}
-.langsel{background:var(--card);color:var(--txt);border:1px solid var(--line-solid);border-radius:12px;padding:8px 12px;font:600 13px Inter,sans-serif;cursor:pointer}
-.appcard{display:flex;gap:14px;align-items:flex-start;text-decoration:none}
-.appcard img{width:58px;height:58px;border-radius:15px;flex:0 0 auto;box-shadow:0 6px 18px rgba(0,0,0,.5)}
-.appcard h3{margin:0 0 4px}.appcard .lk{color:#C77DFF;font:800 12.5px Inter;display:inline-block;margin-top:8px}
-.hero__logo{width:104px;height:104px;display:block;margin:0 auto 8px;filter:drop-shadow(0 0 30px rgba(27,255,155,.35)) drop-shadow(0 8px 26px rgba(168,85,255,.45))}
-.footer__logo{width:34px;height:34px}
-</style>
-<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
-</head><body>
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow bg-glow--1" aria-hidden="true"></div>
-<div class="bg-glow bg-glow--2" aria-hidden="true"></div>
-<div class="rays" aria-hidden="true"></div>
+  :root{
+    --bg:#070509; --surface:#120D1C; --surface2:#1A1228;
+    --hairline:rgba(168,85,255,0.16); --hairlineHot:rgba(168,85,255,0.45);
+    --green:#1BFF9B; --greenDim:#13C77A; --purple:#A855FF; --purpleHot:#C77DFF;
+    --magenta:#FF2D78; --blue:#3FD8FF; --gold:#FFD23F; --text:#F4EEFF; --mute:#8C82A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:radial-gradient(120% 80% at 50% -10%, #14091F 0%, #0A0712 45%, #070509 100%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; min-height:100vh;
+  }
+  a{color:var(--purpleHot);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--hairline);
+    border-radius:999px;font-size:12.5px;font-weight:700;letter-spacing:.4px;color:var(--mute);background:var(--surface)}
+  .pill b{color:var(--green)}
 
-<header class="nav" id="top">
-  <a class="nav__brand" href="#top"><span class="nav__name">DuckerForge</span></a>
-  <nav class="nav__links" aria-label="Primary"><a href="#apps" id="nApps"></a><a href="https://x.com/DuckerForge" target="_blank" rel="noopener">X</a></nav>
-  <select class="langsel" id="langSel" aria-label="Language"></select>
+  header{padding:72px 0 50px;text-align:center}
+  .logo{width:88px;height:88px;margin:0 auto 24px;display:block;filter:drop-shadow(0 8px 30px rgba(168,85,255,.35))}
+  h1{font-size:clamp(40px,9vw,68px);font-weight:900;letter-spacing:-1.5px;line-height:.95;
+    background:linear-gradient(100deg,var(--green),var(--purpleHot));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+  .tag{font-size:clamp(16px,3.2vw,20px);font-weight:700;margin-bottom:10px}
+  .sub{font-size:15px;color:var(--mute);max-width:560px;margin:0 auto}
+  .stats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .stat{text-align:center}
+  .stat b{display:block;font-size:22px;font-weight:900;background:linear-gradient(100deg,var(--green),var(--purpleHot));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{font-size:11px;font-weight:700;letter-spacing:.6px;color:var(--mute);text-transform:uppercase}
+
+  section{padding:42px 0;border-top:1px solid var(--hairline)}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--purpleHot);text-transform:uppercase;margin-bottom:14px}
+  h2{font-size:clamp(24px,5vw,30px);font-weight:900;letter-spacing:-.5px;margin-bottom:8px}
+  .lead{color:var(--mute);font-size:15px;max-width:620px;margin-bottom:24px}
+
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .app{background:var(--surface);border:1px solid var(--hairline);border-radius:18px;padding:20px;position:relative;transition:transform .15s ease,border-color .15s ease}
+  .app:hover{transform:translateY(-3px);border-color:var(--hairlineHot)}
+  .app.feat{border-color:var(--hairlineHot);box-shadow:0 0 0 1px rgba(27,255,155,.10), 0 14px 40px rgba(168,85,255,.10)}
+  .app h3{font-size:16.5px;font-weight:900;letter-spacing:.2px;margin-bottom:4px}
+  .app p{color:var(--mute);font-size:13.5px}
+  .badge{position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:800;letter-spacing:.6px;
+    color:#05130D;background:linear-gradient(135deg,var(--green),var(--purpleHot));padding:3px 9px;border-radius:999px}
+  .app a{font-size:13px;font-weight:700;display:inline-block;margin-top:10px}
+
+  .about p{color:var(--mute);font-size:14.5px;margin-bottom:12px}
+  .about strong{color:var(--text)}
+
+  footer{padding:38px 0 60px;border-top:1px solid var(--hairline);text-align:center;color:var(--mute);font-size:13px}
+  footer .row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+  .hl{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DuckerForge logo">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs>
+      <path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#g)"/>
+      <circle cx="50" cy="50" r="11" fill="#070509"/><circle cx="50" cy="50" r="5.5" fill="url(#g)"/>
+    </svg>
+    <div class="pill">Independent studio · <b>Solana Mobile</b></div>
+    <h1>DuckerForge</h1>
+    <p class="tag">Native apps for the Solana Seeker.</p>
+    <p class="sub">Self-custodial trading tools and on-chain games for Solana Mobile, published on the Solana dApp Store.</p>
+    <div class="stats">
+      <div class="stat"><b>7</b><span>apps</span></div>
+      <div class="stat"><b>dApp Store</b><span>published</span></div>
+      <div class="stat"><b>0</b><span>custody</span></div>
+      <div class="stat"><b>100%</b><span>native</span></div>
+    </div>
+  </div>
 </header>
 
-<main>
-  <section class="hero" style="grid-template-columns:1fr;text-align:center;place-items:center">
-    <div class="hero__copy reveal" style="max-width:680px">
-      <svg class="hero__logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DuckerForge">
-        <defs><linearGradient id="dfg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs>
-        <path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#dfg)"/><circle cx="50" cy="50" r="11" fill="#07070a"/><circle cx="50" cy="50" r="5.5" fill="url(#dfg)"/>
-      </svg>
-      <span class="pill"><span class="pill__dot"></span>Independent solo builder · Solana Seeker</span>
-      <h1 class="hero__title">Ducker<span class="grad">Forge</span></h1>
-      <p class="hero__sub" id="tagline"></p>
-      <p class="hero__sub" style="margin-top:-6px;font-size:15px" id="solo">One developer. Native, self-custodial apps for the Solana Seeker — shipped fast.</p>
-      <div class="hero__cta" style="justify-content:center"><a class="btn btn--primary btn--lg" href="#apps" id="ctaApps"></a><a class="btn btn--ghost btn--lg" href="https://x.com/DuckerForge" target="_blank" rel="noopener">Follow on X</a></div>
+<section id="apps">
+  <div class="wrap">
+    <div class="eyebrow">Our apps</div>
+    <h2>Built for the Seeker</h2>
+    <p class="lead">A growing line-up of native Solana Mobile apps, published on the Solana dApp Store.</p>
+    <div class="apps">
+      <div class="app feat">
+        <span class="badge">NEW</span>
+        <h3>MEGAGEN</h3>
+        <p>One-tap Solana baskets. Pick an amount and a risk level, tap once, own a vetted 3-token basket swapped via Jupiter.</p>
+        <a href="https://duckerforge.github.io/megagen/">megagen page →</a>
+      </div>
+      <div class="app"><h3>SKR Burner</h3><p>Seeker mining and rewards, with a community giveaway pool.</p></div>
+      <div class="app"><h3>SeekerCraft</h3><p>A native sandbox game built for the Seeker.</p></div>
+      <div class="app"><h3>SolFlex</h3><p>A Solana Mobile app for the Seeker.</p></div>
+      <div class="app"><h3>3D Soccer Stars</h3><p>Fast arcade 3D soccer on the Seeker.</p></div>
+      <div class="app"><h3>STARBONK</h3><p>A 3D space arcade shooter on Solana Mobile.</p></div>
+      <div class="app"><h3>The One</h3><p>A native Solana Mobile app for the Seeker.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="strip" aria-label="Highlights">
-    <div class="strip__item"><b>6 apps</b><span>on the dApp Store</span></div>
-    <div class="strip__item"><b>Solana Mobile</b><span>native Seeker</span></div>
-    <div class="strip__item"><b>0 custody</b><span>your keys, always</span></div>
-    <div class="strip__item"><b>Solo-built</b><span>shipped fast</span></div>
-  </section>
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Who we are</h2>
+    <p><strong>DuckerForge</strong> is an independent developer publishing apps on the Solana Mobile dApp Store for the Seeker device. We focus on fast, native, self-custodial experiences.</p>
+    <p>Our apps are non-custodial: they connect through the Solana Mobile Wallet Adapter and never hold user funds. Crypto is volatile and risky — our trading apps are tools, not financial advice.</p>
+  </div>
+</section>
 
-  <section class="section" id="apps">
-    <div class="section__head reveal"><span class="eyebrow" id="appsK"></span><h2 id="appsH"></h2><p id="appsL"></p></div>
-    <div class="grid" id="grid"></div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer__brand"><svg class="footer__logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="dfg2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#1BFF9B"/><stop offset="1" stop-color="#A855FF"/></linearGradient></defs><path d="M50 4 L61 35 L94 35 L67 55 L77 88 L50 68 L23 88 L33 55 L6 35 L39 35 Z" fill="url(#dfg2)"/><circle cx="50" cy="50" r="11" fill="#07070a"/><circle cx="50" cy="50" r="5.5" fill="url(#dfg2)"/></svg><div><b>DuckerForge</b><span>solo builder · Solana Seeker</span></div></div>
-  <nav class="footer__links"><a href="https://x.com/DuckerForge" target="_blank" rel="noopener">X / @DuckerForge</a><a href="mailto:infernaytb@gmail.com"><span id="contact"></span></a></nav>
-  <p class="footer__copy">© 2026 DuckerForge · <span id="rights"></span></p>
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="mailto:infernaytb@gmail.com">Contact</a>
+    </div>
+    <p>© 2026 <span class="hl">DuckerForge</span> · Apps for the Solana Seeker dApp Store</p>
+  </div>
 </footer>
-<script>
-var I18N={"en": {"ui": {"privacyTitle": "Privacy Policy", "termsTitle": "Terms of Use", "updated": "Last updated: 23 June 2026", "backHome": "MEGAGEN", "langLabel": "Language", "pubKicker": "Independent builder · Solana Seeker", "pubTagline": "Apps for the Solana Seeker.", "pubAbout1": "DuckerForge is an independent developer publishing apps on the Solana Mobile dApp Store for the Seeker device. We focus on fast, native, self-custodial experiences.", "pubAbout2": "Our apps are non-custodial: they connect through the Solana Mobile Wallet Adapter and never hold user funds. Crypto is volatile and risky — our trading apps are tools, not financial advice.", "pubAppsHeading": "Our apps", "pubAppsLead": "A growing line-up of native apps, published on the Solana dApp Store.", "aboutHeading": "About", "openSite": "Open site", "contact": "Contact", "rights": "Apps for the Solana Seeker dApp Store"}, "apps": {"megagen": "One-tap Solana baskets. Pick an amount and a risk level, tap once, own a vetted 3-token basket swapped via Jupiter.", "soccer": "3D Soccer Stars — a fast 3D football game for the Solana Seeker.", "starbonk": "3D STARBONK — an arcade 3D game on Solana Mobile.", "skrburner": "SKR Burner — a Solana Mobile token utility for the Seeker.", "seekercraft": "SeekerCraft — a native crafting experience for the Seeker.", "theone": "The One — a native app for the Solana Seeker.", "comet": "Comet — a native Solana Mobile app.", "solflex": "SolFlex — a native app for the Solana Seeker."}}, "de": {"ui": {"privacyTitle": "Datenschutzerklärung", "termsTitle": "Nutzungsbedingungen", "updated": "Zuletzt aktualisiert: 23. Juni 2026", "backHome": "MEGAGEN", "langLabel": "Sprache", "pubKicker": "Unabhängiger Entwickler · Solana Seeker", "pubTagline": "Apps für den Solana Seeker.", "pubAbout1": "DuckerForge ist ein unabhängiger Entwickler, der Apps im Solana Mobile dApp Store für das Seeker-Gerät veröffentlicht. Unser Fokus liegt auf schnellen, nativen Erlebnissen mit Selbstverwahrung.", "pubAbout2": "Unsere Apps sind nicht verwahrend: Sie verbinden sich über den Solana Mobile Wallet Adapter und halten niemals Nutzergelder. Kryptowährungen sind volatil und riskant — unsere Trading-Apps sind Werkzeuge, keine Finanzberatung.", "pubAppsHeading": "Unsere Apps", "pubAppsLead": "Eine wachsende Auswahl nativer Apps, veröffentlicht im Solana dApp Store.", "aboutHeading": "Über uns", "openSite": "Website öffnen", "contact": "Kontakt", "rights": "Apps für den Solana Seeker dApp Store"}, "apps": {"megagen": "Solana-Baskets mit einem Tipp. Wähle einen Betrag und eine Risikostufe, tippe einmal und besitze ein geprüftes 3-Token-Basket, getauscht über Jupiter.", "soccer": "3D Soccer Stars — ein schnelles 3D-Fußballspiel für den Solana Seeker.", "starbonk": "3D STARBONK — ein 3D-Arcade-Spiel auf Solana Mobile.", "skrburner": "SKR Burner — ein Solana Mobile Token-Tool für den Seeker.", "seekercraft": "SeekerCraft — ein natives Crafting-Erlebnis für den Seeker.", "theone": "The One — eine native App für den Solana Seeker.", "comet": "Comet — eine native Solana Mobile App.", "solflex": "SolFlex — eine native App für den Solana Seeker."}}, "es": {"ui": {"privacyTitle": "Política de privacidad", "termsTitle": "Términos de uso", "updated": "Última actualización: 23 de junio de 2026", "backHome": "MEGAGEN", "langLabel": "Idioma", "pubKicker": "Desarrollador independiente · Solana Seeker", "pubTagline": "Aplicaciones para el Solana Seeker.", "pubAbout1": "DuckerForge es un desarrollador independiente que publica aplicaciones en la Solana Mobile dApp Store para el dispositivo Seeker. Nos centramos en experiencias rápidas, nativas y de autocustodia.", "pubAbout2": "Nuestras aplicaciones no son de custodia: se conectan a través del Solana Mobile Wallet Adapter y nunca retienen los fondos del usuario. Las criptomonedas son volátiles y arriesgadas: nuestras aplicaciones de trading son herramientas, no asesoramiento financiero.", "pubAppsHeading": "Nuestras aplicaciones", "pubAppsLead": "Una creciente colección de aplicaciones nativas, publicadas en la Solana dApp Store.", "aboutHeading": "Acerca de", "openSite": "Abrir sitio", "contact": "Contacto", "rights": "Aplicaciones para la Solana Seeker dApp Store"}, "apps": {"megagen": "Cestas de Solana con un solo toque. Elige un importe y un nivel de riesgo, toca una vez y hazte con una cesta verificada de 3 tokens intercambiados a través de Jupiter.", "soccer": "3D Soccer Stars: un trepidante juego de fútbol en 3D para el Solana Seeker.", "starbonk": "3D STARBONK: un juego arcade en 3D en Solana Mobile.", "skrburner": "SKR Burner: una utilidad de tokens de Solana Mobile para el Seeker.", "seekercraft": "SeekerCraft: una experiencia nativa de crafteo para el Seeker.", "theone": "The One: una aplicación nativa para el Solana Seeker.", "comet": "Comet: una aplicación nativa de Solana Mobile.", "solflex": "SolFlex: una aplicación nativa para el Solana Seeker."}}, "fr": {"ui": {"privacyTitle": "Politique de confidentialité", "termsTitle": "Conditions d'utilisation", "updated": "Dernière mise à jour : 23 juin 2026", "backHome": "MEGAGEN", "langLabel": "Langue", "pubKicker": "Développeur indépendant · Solana Seeker", "pubTagline": "Des applications pour le Solana Seeker.", "pubAbout1": "DuckerForge est un développeur indépendant qui publie des applications sur le Solana Mobile dApp Store pour l'appareil Seeker. Nous nous concentrons sur des expériences rapides, natives et auto-conservées.", "pubAbout2": "Nos applications sont non dépositaires : elles se connectent via le Solana Mobile Wallet Adapter et ne détiennent jamais les fonds des utilisateurs. Les cryptomonnaies sont volatiles et risquées — nos applications de trading sont des outils, pas des conseils financiers.", "pubAppsHeading": "Nos applications", "pubAppsLead": "Une gamme croissante d'applications natives, publiées sur le Solana dApp Store.", "aboutHeading": "À propos", "openSite": "Ouvrir le site", "contact": "Contact", "rights": "Des applications pour le Solana Seeker dApp Store"}, "apps": {"megagen": "Des paniers Solana en un seul geste. Choisissez un montant et un niveau de risque, appuyez une fois, et possédez un panier de 3 jetons vérifiés échangés via Jupiter.", "soccer": "3D Soccer Stars — un jeu de football 3D rapide pour le Solana Seeker.", "starbonk": "3D STARBONK — un jeu d'arcade 3D sur Solana Mobile.", "skrburner": "SKR Burner — un utilitaire de jetons Solana Mobile pour le Seeker.", "seekercraft": "SeekerCraft — une expérience de craft native pour le Seeker.", "theone": "The One — une application native pour le Solana Seeker.", "comet": "Comet — une application native Solana Mobile.", "solflex": "SolFlex — une application native pour le Solana Seeker."}}, "ja": {"ui": {"privacyTitle": "プライバシーポリシー", "termsTitle": "利用規約", "updated": "最終更新日: 2026年6月23日", "backHome": "MEGAGEN", "langLabel": "言語", "pubKicker": "独立系開発者 · Solana Seeker", "pubTagline": "Solana Seeker のためのアプリ。", "pubAbout1": "DuckerForge は、Seeker デバイス向けに Solana Mobile dApp Store でアプリを提供する独立系の開発者です。私たちは、高速でネイティブ、かつ自己管理型（セルフカストディ）の体験に注力しています。", "pubAbout2": "私たちのアプリはノンカストディアル（非預託型）です。Solana Mobile Wallet Adapter を通じて接続し、ユーザーの資金を一切預かりません。暗号資産は変動が激しくリスクを伴います。私たちのトレーディングアプリはあくまでツールであり、金融上の助言ではありません。", "pubAppsHeading": "私たちのアプリ", "pubAppsLead": "Solana dApp Store で提供される、拡充を続けるネイティブアプリのラインナップ。", "aboutHeading": "概要", "openSite": "サイトを開く", "contact": "お問い合わせ", "rights": "Solana Seeker dApp Store のためのアプリ"}, "apps": {"megagen": "ワンタップの Solana バスケット。金額とリスクレベルを選んで一度タップするだけで、Jupiter を通じてスワップされた、審査済みの3トークンバスケットを保有できます。", "soccer": "3D Soccer Stars — Solana Seeker 向けのスピーディーな3Dサッカーゲーム。", "starbonk": "3D STARBONK — Solana Mobile 上のアーケード3Dゲーム。", "skrburner": "SKR Burner — Seeker 向けの Solana Mobile トークンユーティリティ。", "seekercraft": "SeekerCraft — Seeker 向けのネイティブなクラフト体験。", "theone": "The One — Solana Seeker 向けのネイティブアプリ。", "comet": "Comet — ネイティブな Solana Mobile アプリ。", "solflex": "SolFlex — Solana Seeker 向けのネイティブアプリ。"}}, "ko": {"ui": {"privacyTitle": "개인정보 처리방침", "termsTitle": "이용약관", "updated": "최종 업데이트: 2026년 6월 23일", "backHome": "MEGAGEN", "langLabel": "언어", "pubKicker": "독립 개발자 · Solana Seeker", "pubTagline": "Solana Seeker를 위한 앱.", "pubAbout1": "DuckerForge는 Seeker 기기를 위해 Solana Mobile dApp Store에 앱을 출시하는 독립 개발자입니다. 저희는 빠르고 네이티브하며 자기수탁형(self-custodial) 경험에 집중합니다.", "pubAbout2": "저희 앱은 비수탁형(non-custodial)입니다. Solana Mobile Wallet Adapter를 통해 연결되며 사용자 자금을 절대 보유하지 않습니다. 암호화폐는 변동성이 크고 위험합니다 — 저희 트레이딩 앱은 도구일 뿐, 금융 자문이 아닙니다.", "pubAppsHeading": "앱 목록", "pubAppsLead": "Solana dApp Store에 출시된, 점점 늘어나는 네이티브 앱 라인업.", "aboutHeading": "소개", "openSite": "사이트 열기", "contact": "연락처", "rights": "Solana Seeker dApp Store를 위한 앱"}, "apps": {"megagen": "원탭 Solana 바스켓. 금액과 위험 수준을 선택하고 한 번만 탭하면, Jupiter를 통해 스왑된 검증된 3종 토큰 바스켓을 보유하게 됩니다.", "soccer": "3D Soccer Stars — Solana Seeker를 위한 빠른 3D 축구 게임.", "starbonk": "3D STARBONK — Solana Mobile 기반의 아케이드 3D 게임.", "skrburner": "SKR Burner — Seeker를 위한 Solana Mobile 토큰 유틸리티.", "seekercraft": "SeekerCraft — Seeker를 위한 네이티브 크래프팅 경험.", "theone": "The One — Solana Seeker를 위한 네이티브 앱.", "comet": "Comet — 네이티브 Solana Mobile 앱.", "solflex": "SolFlex — Solana Seeker를 위한 네이티브 앱."}}, "zh": {"ui": {"privacyTitle": "隐私政策", "termsTitle": "使用条款", "updated": "最后更新：2026 年 6 月 23 日", "backHome": "MEGAGEN", "langLabel": "语言", "pubKicker": "独立开发者 · Solana Seeker", "pubTagline": "专为 Solana Seeker 打造的应用。", "pubAbout1": "DuckerForge 是一家独立开发者，在 Solana Mobile dApp Store 上为 Seeker 设备发布应用。我们专注于快速、原生、自托管的使用体验。", "pubAbout2": "我们的应用均为非托管式：它们通过 Solana Mobile Wallet Adapter 连接，绝不持有用户资金。加密货币波动剧烈、风险高昂——我们的交易类应用只是工具，并非投资建议。", "pubAppsHeading": "我们的应用", "pubAppsLead": "在 Solana dApp Store 上发布、不断扩充的原生应用阵容。", "aboutHeading": "关于", "openSite": "打开网站", "contact": "联系我们", "rights": "专为 Solana Seeker dApp Store 打造的应用"}, "apps": {"megagen": "一键式 Solana 代币组合。选择金额与风险等级，轻点一下，即可拥有一篮经过筛选、通过 Jupiter 完成兑换的三代币组合。", "soccer": "3D Soccer Stars——专为 Solana Seeker 打造的快节奏 3D 足球游戏。", "starbonk": "3D STARBONK——Solana Mobile 上的街机风格 3D 游戏。", "skrburner": "SKR Burner——专为 Seeker 打造的 Solana Mobile 代币工具。", "seekercraft": "SeekerCraft——专为 Seeker 打造的原生制作体验。", "theone": "The One——专为 Solana Seeker 打造的原生应用。", "comet": "Comet——一款原生 Solana Mobile 应用。", "solflex": "SolFlex——专为 Solana Seeker 打造的原生应用。"}}},LNAMES=[{"c": "en", "n": "English"}, {"c": "de", "n": "Deutsch"}, {"c": "es", "n": "Español"}, {"c": "fr", "n": "Français"}, {"c": "ja", "n": "日本語"}, {"c": "ko", "n": "한국어"}, {"c": "zh", "n": "中文"}],APPS=[{"k": "megagen", "n": "MEGAGEN", "u": "https://duckerforge.github.io/megagen/"}, {"k": "soccer", "n": "3D Soccer Stars", "u": "https://duckerforge.github.io/3d-soccer-stars-docs/"}, {"k": "starbonk", "n": "3D STARBONK", "u": "https://duckerforge.github.io/starbonk-legal/"}, {"k": "skrburner", "n": "SKR Burner", "u": "https://duckerforge.github.io/skr-burner-site/"}, {"k": "seekercraft", "n": "SeekerCraft", "u": "https://duckerforge.github.io/seekercraft-site/"}, {"k": "theone", "n": "The One", "u": "https://duckerforge.github.io/TheOne/"}];
-function pick(){var s=localStorage.getItem('mg_lang');if(s&&I18N[s])return s;var n=(navigator.language||'en').slice(0,2).toLowerCase();return I18N[n]?n:'en';}
-var LANG=pick();
-function S(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-function render(){var t=I18N[LANG];document.documentElement.lang=LANG;
-S('tagline',t.ui.pubTagline);S('appsK',t.ui.pubAppsHeading);S('appsH',t.ui.pubAppsHeading);S('appsL',t.ui.pubAppsLead);
-S('nApps',t.ui.pubAppsHeading);S('ctaApps',t.ui.pubAppsHeading);S('contact',t.ui.contact);S('rights',t.ui.rights);
-var g=document.getElementById('grid');g.innerHTML='';APPS.forEach(function(a){var card=document.createElement('a');card.className='card appcard reveal in';card.href=a.u;
-var img=document.createElement('img');img.src='icons/'+a.k+'.png';img.alt=a.n;img.loading='lazy';
-var d=document.createElement('div');var h=document.createElement('h3');h.textContent=a.n;var p=document.createElement('p');p.textContent=t.apps[a.k]||'';var lk=document.createElement('span');lk.className='lk';lk.textContent=(t.ui.openSite||'Open')+' →';
-d.appendChild(h);d.appendChild(p);d.appendChild(lk);card.appendChild(img);card.appendChild(d);g.appendChild(card);});}
-var sel=document.getElementById('langSel');LNAMES.forEach(function(o){var op=document.createElement('option');op.value=o.c;op.textContent=o.n;if(o.c===LANG)op.selected=true;sel.appendChild(op);});
-sel.addEventListener('change',function(){LANG=sel.value;localStorage.setItem('mg_lang',LANG);render();});
-render();
-</script><script src="script.js" defer></script></body></html>
+
+</body>
+</html>
