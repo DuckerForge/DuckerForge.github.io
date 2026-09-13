@@ -19,6 +19,8 @@
     <p class="small" id="whoLabel"></p>
     <p class="who" id="who"></p>
     <a class="btn primary" id="open" href="#"></a>
+    <p class="warn" id="missed" hidden></p>
+    <button class="btn ghost" id="copy"></button>
     <a class="btn ghost" id="get" href=""></a>
     <p class="small" id="foot"></p>
   </div>
@@ -74,6 +76,40 @@
 
   $('open').textContent = T('Apri col mio portafoglio', 'Open with my wallet');
   $('open').href = pay;
+
+  // A solana: link that nobody handles fails silently — the browser simply stays
+  // put and the person is left wondering. If we are still on this page a moment
+  // after the tap, no wallet answered, and saying so beats saying nothing.
+  $('open').addEventListener('click', function () {
+    $('missed').hidden = true;
+    setTimeout(function () {
+      if (document.visibilityState === 'visible' && document.hasFocus()) {
+        $('missed').hidden = false;
+        $('missed').textContent = T(
+          'Nessun portafoglio ha risposto. Se ne hai uno, aprilo e incolla l’indirizzo qui sotto; se non ce l’hai, scarica Apex.',
+          'No wallet answered. If you have one, open it and paste the address below; if you have none, get Apex.');
+      }
+    }, 1500);
+  });
+
+  // Works with no wallet at all: the address by hand is always a way through.
+  $('copy').textContent = T('Copia l’indirizzo', 'Copy the address');
+  $('copy').addEventListener('click', async function () {
+    const done = T('Indirizzo copiato', 'Address copied');
+    try {
+      await navigator.clipboard.writeText(to);
+      $('copy').textContent = done;
+    } catch (e) {
+      // Clipboard is blocked on insecure or unfocused contexts: select it instead.
+      const r = document.createRange();
+      r.selectNodeContents($('who'));
+      const sel = getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      $('copy').textContent = T('Selezionato: tieni premuto e copia', 'Selected: long-press and copy');
+    }
+    setTimeout(function () { $('copy').textContent = T('Copia l’indirizzo', 'Copy the address'); }, 2500);
+  });
   $('get').textContent = T('Non ho un portafoglio · scarica Apex', 'No wallet yet · get Apex');
   $('get').href = APK;
   $('foot').textContent = T(
